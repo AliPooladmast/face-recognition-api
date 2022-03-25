@@ -1,9 +1,12 @@
 const express = require("express");
 const { send } = require("express/lib/response");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const port = 3000;
 const app = express();
+
 app.use(bodyParser.json());
+app.use(cors());
 
 database = {
   users: [
