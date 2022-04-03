@@ -11,5 +11,5 @@ const handleProfileId = (db) => (req, res) => {
 };
 
 module.exports = {
-  handleProfileId: handleProfileId,
+  handleProfileId,
 };

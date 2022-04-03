@@ -28,6 +28,8 @@ app.post("/signin", signin.handleSignIn(db, bcrypt));
 
 app.post("/register", register.handleRegister(db, bcrypt));
 
+app.post("/imageurl", image.handleImageUrl());
+
 app.get("/profile/:id", profileId.handleProfileId(db));
 
 app.put("/image", image.handleImage(db));

@@ -1,6 +1,9 @@
 const handleRegister = (db, bcrypt) => (req, res) => {
   const saltRounds = 10;
   const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.status(400).json("incorrect form submission");
+  }
   const hash = bcrypt.hashSync(password, saltRounds);
   db.transaction((trx) => {
     trx
@@ -25,5 +28,5 @@ const handleRegister = (db, bcrypt) => (req, res) => {
   }).catch((err) => res.status(400).json("Unable to register"));
 };
 module.exports = {
-  handleRegister: handleRegister,
+  handleRegister,
 };
