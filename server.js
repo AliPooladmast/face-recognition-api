@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const port = 3000;
 const app = express();
 const knex = require("knex");
 const bcrypt = require("bcrypt");
@@ -34,6 +33,6 @@ app.get("/profile/:id", profileId.handleProfileId(db));
 
 app.put("/image", image.handleImage(db));
 
-app.listen(port, () => {
-  console.log(`this app is running on port ${port}`);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`this app is running on port ${process.env.PORT}`);
 });
